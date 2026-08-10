@@ -1,0 +1,530 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>The Ops Maxxing System — Opulence Flows</title>
+<meta name="description" content="We install a working operating system inside your agency in 14 days. Then spend 60 days making sure it sticks." />
+
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+
+<style>
+  :root {
+    --text-xs:   clamp(0.72rem,  0.85vw,  0.875rem);
+    --text-sm:   clamp(0.8rem,   1vw,     0.95rem);
+    --text-base: clamp(0.95rem,  1.2vw,   1.1rem);
+    --text-md:   clamp(1.1rem,   1.5vw,   1.3rem);
+    --text-lg:   clamp(1.3rem,   2.2vw,   2.1rem);
+    --text-xl:   clamp(1.6rem,   3vw,     3.1rem);
+    --text-2xl:  clamp(1.9rem,   3.8vw,   4.6rem);
+    --text-hero: clamp(1.9rem,   3.6vw,   3.8rem);
+
+    --space-xs:  clamp(6px,   0.8vw,  12px);
+    --space-sm:  clamp(10px,  1.2vw,  20px);
+    --space-md:  clamp(16px,  2vw,    32px);
+    --space-lg:  clamp(28px,  4vw,    60px);
+    --space-xl:  clamp(40px,  6vw,    88px);
+    --space-2xl: clamp(56px,  8vw,   112px);
+
+    --gold: #C9A84C;
+    --gold-dim: rgba(201,168,76,0.55);
+    --radius: clamp(6px, 0.6vw, 10px);
+    --gap-grid: clamp(12px, 1.8vw, 24px);
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { font-size: 16px; scroll-behavior: smooth; }
+
+  body {
+    background-color: #000;
+    color: #fff;
+    font-family: 'Inter', sans-serif;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .container { max-width: min(1200px, 92vw); margin: 0 auto; padding: 0 clamp(16px, 3vw, 60px); }
+  section { padding: var(--space-xl) 0; }
+  .eyebrow {
+    display: inline-block;
+    font-size: var(--text-xs);
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: var(--space-sm);
+  }
+  .section-center { text-align: center; max-width: 760px; margin: 0 auto var(--space-lg); }
+  h2 { font-size: var(--text-xl); font-weight: 800; color: #fff; line-height: 1.2; }
+  .lede { font-size: var(--text-base); color: rgba(255,255,255,0.72); margin-top: var(--space-sm); }
+
+  /* ── BUTTONS ─────────────────────────────────────────── */
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-family: 'Inter', sans-serif;
+    font-weight: 700;
+    font-size: var(--text-base);
+    text-decoration: none;
+    padding: clamp(14px, 1.6vw, 20px) clamp(24px, 3vw, 40px);
+    border-radius: var(--radius);
+    transition: opacity 0.15s ease, transform 0.15s ease;
+    cursor: pointer;
+    border: 1px solid transparent;
+  }
+  .btn:hover { opacity: 0.85; transform: translateY(-1px); }
+  .btn-primary { background: var(--gold); color: #000; }
+  .btn-block { display: flex; width: 100%; justify-content: center; }
+  .btn-sm { font-size: var(--text-sm); padding: 10px 20px; }
+  .cta-wrap { text-align: center; margin-top: var(--space-md); }
+  .cta-note { display: block; margin-top: var(--space-xs); font-size: var(--text-xs); color: rgba(255,255,255,0.45); }
+
+  /* ── HEADER ──────────────────────────────────────────── */
+  .site-header {
+    position: sticky; top: 0; z-index: 50;
+    padding: 14px 0;
+    background: rgba(0,0,0,0.9);
+    backdrop-filter: blur(6px);
+    border-bottom: 1px solid #1a1a1a;
+  }
+  .site-header .container { display: flex; align-items: center; justify-content: space-between; }
+  .logo-text {
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    font-size: clamp(1rem, 1.8vw, 1.4rem);
+    letter-spacing: 0.04em;
+    color: #fff;
+    text-transform: uppercase;
+  }
+
+  /* ── HERO ────────────────────────────────────────────── */
+  .hero { padding: clamp(20px, 2.5vw, 40px) 0 var(--space-lg); text-align: center; }
+  .hero h1 {
+    font-size: var(--text-hero);
+    font-weight: 800;
+    line-height: 1.12;
+    max-width: 18ch;
+    margin: 0 auto var(--space-sm);
+  }
+  .hero h1 .accent { color: var(--gold); }
+  .hero .lede { max-width: 58ch; margin-left: auto; margin-right: auto; font-size: var(--text-base); }
+  .hero-badges {
+    display: flex; flex-wrap: wrap; justify-content: center; gap: var(--space-sm);
+    margin-top: var(--space-md);
+    font-size: var(--text-xs); color: rgba(255,255,255,0.5); text-transform: uppercase; letter-spacing: 0.06em;
+  }
+  .hero-badges span { padding: 6px 14px; border: 1px solid #222; border-radius: 999px; }
+
+  /* ── PROBLEM ─────────────────────────────────────────── */
+  .pain-list { list-style: none; max-width: 680px; margin: 0 auto; }
+  .pain-list li {
+    display: flex; gap: 14px; align-items: flex-start;
+    padding: var(--space-sm) 0;
+    border-bottom: 1px solid #161616;
+    font-size: var(--text-base);
+    color: rgba(255,255,255,0.85);
+  }
+  .pain-list li:last-child { border-bottom: none; }
+  .pain-list .mark { color: var(--gold); font-weight: 800; flex-shrink: 0; }
+  .problem-close {
+    text-align: center; max-width: 640px; margin: var(--space-lg) auto 0;
+    font-size: var(--text-md); font-weight: 700; color: #fff;
+  }
+
+  /* ── BEFORE / AFTER ──────────────────────────────────── */
+  .ba-grid { display: grid; grid-template-columns: 1fr 1fr; gap: var(--gap-grid); }
+  .ba-col { border-radius: var(--radius); padding: var(--space-md); border: 1px solid #1e1e1e; background: #070707; }
+  .ba-col.after { border-color: var(--gold-dim); background: #0d0b03; }
+  .ba-label {
+    font-size: var(--text-xs); font-weight: 800; letter-spacing: 0.1em; text-transform: uppercase;
+    margin-bottom: var(--space-md); display: block;
+  }
+  .ba-col.before .ba-label { color: rgba(255,255,255,0.4); }
+  .ba-col.after .ba-label { color: var(--gold); }
+  .ba-row { padding: var(--space-sm) 0; border-bottom: 1px solid rgba(255,255,255,0.06); font-size: var(--text-sm); }
+  .ba-col.before .ba-row { color: rgba(255,255,255,0.55); }
+  .ba-col.after .ba-row { color: #fff; font-weight: 500; }
+  .ba-row:last-child { border-bottom: none; }
+  .ba-arrow {
+    display: none;
+  }
+
+  /* ── PHASES ──────────────────────────────────────────── */
+  .phase-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: var(--gap-grid); }
+  .phase-card {
+    background: #080808; border: 1px solid #1e1e1e; border-radius: var(--radius);
+    padding: var(--space-md);
+  }
+  .phase-top { display: flex; align-items: center; justify-content: space-between; margin-bottom: var(--space-xs); }
+  .phase-num { font-size: var(--text-lg); font-weight: 800; color: var(--gold); }
+  .phase-tag {
+    font-size: var(--text-xs); font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase;
+    color: #000; background: var(--gold); padding: 3px 10px; border-radius: 999px;
+  }
+  .phase-days { font-size: var(--text-xs); color: rgba(255,255,255,0.45); margin-bottom: var(--space-xs); text-transform: uppercase; letter-spacing: 0.05em; }
+  .phase-card h3 { font-size: var(--text-md); font-weight: 700; margin-bottom: var(--space-xs); }
+  .phase-card ul { list-style: none; margin-bottom: var(--space-sm); }
+  .phase-card li { font-size: var(--text-sm); color: rgba(255,255,255,0.68); padding: 4px 0 4px 16px; position: relative; }
+  .phase-card li::before { content: "—"; position: absolute; left: 0; color: rgba(255,255,255,0.3); }
+  .phase-deliverable {
+    font-size: var(--text-xs); color: var(--gold); font-style: italic; border-top: 1px solid #1a1a1a; padding-top: var(--space-xs);
+  }
+
+  /* ── GUARANTEE ───────────────────────────────────────── */
+  .guarantee-box {
+    text-align: center; max-width: 760px; margin: 0 auto;
+    border: 1px solid var(--gold); border-radius: var(--radius);
+    padding: var(--space-lg) var(--space-md); background: #0d0b03;
+  }
+  .guarantee-box .eyebrow { margin-bottom: var(--space-sm); }
+  .guarantee-box h2 { font-size: var(--text-lg); margin-bottom: var(--space-sm); }
+  .guarantee-box p { font-size: var(--text-base); color: rgba(255,255,255,0.75); max-width: 56ch; margin: 0 auto; }
+  .guarantee-box .fine { margin-top: var(--space-sm); font-size: var(--text-sm); color: var(--gold); font-weight: 700; }
+
+  /* ── FIT CHECK ───────────────────────────────────────── */
+  .fit-grid { display: grid; grid-template-columns: 1fr 1fr; gap: var(--gap-grid); }
+  .fit-col { border-radius: var(--radius); border: 1px solid #1e1e1e; padding: var(--space-md); background: #080808; }
+  .fit-col h3 { font-size: var(--text-md); margin-bottom: var(--space-sm); }
+  .fit-col.yes h3 { color: var(--gold); }
+  .fit-col.no h3 { color: rgba(255,255,255,0.5); }
+  .fit-col ul { list-style: none; }
+  .fit-col li { font-size: var(--text-sm); padding: 6px 0 6px 22px; position: relative; color: rgba(255,255,255,0.75); }
+  .fit-col.yes li::before { content: "✓"; position: absolute; left: 0; color: var(--gold); font-weight: 800; }
+  .fit-col.no li::before { content: "✕"; position: absolute; left: 0; color: rgba(255,255,255,0.35); font-weight: 800; }
+
+  /* ── FAQ ─────────────────────────────────────────────── */
+  .faq-list { max-width: 760px; margin: 0 auto; }
+  .faq-item { border-bottom: 1px solid #1a1a1a; }
+  .faq-item summary {
+    list-style: none; cursor: pointer;
+    display: flex; align-items: center; justify-content: space-between; gap: var(--space-md);
+    padding: var(--space-md) 4px;
+    font-size: var(--text-base); font-weight: 600; color: #fff;
+  }
+  .faq-item summary::-webkit-details-marker { display: none; }
+  .faq-item summary::after {
+    content: "+"; font-size: 1.4rem; color: var(--gold); font-weight: 300; flex-shrink: 0;
+    transition: transform 0.15s ease;
+  }
+  .faq-item[open] summary::after { content: "–"; }
+  .faq-item p { font-size: var(--text-sm); color: rgba(255,255,255,0.68); padding: 0 4px var(--space-md); max-width: 65ch; }
+
+  /* ── FINAL CTA ───────────────────────────────────────── */
+  .final-cta { text-align: center; padding: var(--space-2xl) 0; }
+  .final-cta h2 { max-width: 20ch; margin: 0 auto var(--space-md); }
+  .final-cta .lede { max-width: 52ch; margin-left: auto; margin-right: auto; }
+
+  /* ── FOOTER ──────────────────────────────────────────── */
+  .site-footer { padding: var(--space-lg) 0 var(--space-lg); text-align: center; border-top: 1px solid #161616; }
+  .footer-divider { width: 100%; height: 1px; background: rgba(255,255,255,0.08); margin: var(--space-md) 0; }
+  .footer-powered { font-size: var(--text-xs); color: rgba(255,255,255,0.28); letter-spacing: 0.06em; }
+
+  /* ── STICKY MOBILE BAR ───────────────────────────────── */
+  .mobile-bar {
+    position: fixed; bottom: 0; left: 0; right: 0; z-index: 60;
+    padding: 12px 16px; background: #000; border-top: 1px solid #1e1e1e;
+    display: none;
+  }
+
+  /* ── RESPONSIVE ──────────────────────────────────────── */
+  @media (max-width: 780px) {
+    .ba-grid, .phase-grid, .fit-grid { grid-template-columns: 1fr; }
+    .mobile-bar { display: block; }
+    body { padding-bottom: 72px; }
+  }
+</style>
+</head>
+
+<body>
+
+  <!-- ══════════════ HEADER ══════════════ -->
+  <header class="site-header">
+    <div class="container">
+      <span class="logo-text">Opulence Flows</span>
+      <a href="#" class="btn btn-primary btn-sm cta-btn">Book Your Call</a>
+    </div>
+  </header>
+
+  <!-- ══════════════ HERO ══════════════ -->
+  <section class="hero">
+    <div class="container">
+      <span class="eyebrow">For Content &amp; Video Agency Owners Doing $30K–$100K/Month</span>
+      <h1>Your Team Can't Run Without You. <span class="accent">That's Costing You The Next Client.</span></h1>
+      <p class="lede">We install a working operating system inside your agency in 14 days — SOPs, reporting, accountability — so your team executes without asking you first. Then we spend 60 days making sure it actually sticks.</p>
+      <div class="cta-wrap">
+        <a href="#" class="btn btn-primary cta-btn">Book Your Call →</a>
+        <span class="cta-note">40 minutes. We map what's breaking and put a number on what it's costing you — whether you work with us or not.</span>
+      </div>
+      <div class="hero-badges">
+        <span>14-Day Build</span>
+        <span>75-Day Install</span>
+        <span>Team Stickiness Guarantee</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════ PROBLEM ══════════════ -->
+  <section>
+    <div class="container">
+      <div class="section-center">
+        <span class="eyebrow">Sound Familiar?</span>
+        <h2>You Didn't Build A Team. You Built A Bigger Job.</h2>
+        <p class="lede">You've built something real — the revenue proves it. But it only works because you're in it every single day.</p>
+      </div>
+      <ul class="pain-list">
+        <li><span class="mark">—</span> Your team asks you questions your SOPs should already answer</li>
+        <li><span class="mark">—</span> Reporting lands on your desk because nobody else owns it</li>
+        <li><span class="mark">—</span> Every time you try to delegate something, it quietly comes back to you</li>
+        <li><span class="mark">—</span> You can't take on bigger clients — you have no bandwidth</li>
+        <li><span class="mark">—</span> You have no bandwidth because your team can't run without you</li>
+      </ul>
+      <p class="problem-close">That's not a team problem. That's a systems adoption problem — and it's costing you growth every month it goes unsolved.</p>
+      <div class="cta-wrap">
+        <a href="#" class="btn btn-primary cta-btn">Fix This In 75 Days</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════ BEFORE / AFTER ══════════════ -->
+  <section>
+    <div class="container">
+      <div class="section-center">
+        <span class="eyebrow">The Shift</span>
+        <h2>What Changes By Day 75</h2>
+      </div>
+      <div class="ba-grid">
+        <div class="ba-col before">
+          <span class="ba-label">Before</span>
+          <div class="ba-row">Answering team questions all day</div>
+          <div class="ba-row">Reporting done manually, or not at all</div>
+          <div class="ba-row">"Can't take more clients till I fix this"</div>
+          <div class="ba-row">You are the operating system</div>
+          <div class="ba-row">Busy but stuck</div>
+          <div class="ba-row">Delegated work that quietly comes back to you</div>
+        </div>
+        <div class="ba-col after">
+          <span class="ba-label">After</span>
+          <div class="ba-row">Team executes without asking you first</div>
+          <div class="ba-row">Reporting runs without you touching it</div>
+          <div class="ba-row">Bandwidth to close bigger clients</div>
+          <div class="ba-row">Your business has an operating system</div>
+          <div class="ba-row">Focused and scaling</div>
+          <div class="ba-row">Work that stays delegated</div>
+        </div>
+      </div>
+      <div class="cta-wrap">
+        <a href="#" class="btn btn-primary cta-btn">See If You Qualify</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════ HOW IT WORKS ══════════════ -->
+  <section>
+    <div class="container">
+      <div class="section-center">
+        <span class="eyebrow">The Ops Maxxing System</span>
+        <h2>How The 75-Day Install Works</h2>
+        <p class="lede">Done for you first. Done with you until it sticks.</p>
+      </div>
+      <div class="phase-grid">
+
+        <div class="phase-card">
+          <div class="phase-top"><span class="phase-num">01</span><span class="phase-tag">Done For You</span></div>
+          <div class="phase-days">Days 1–3</div>
+          <h3>Figure Out What's Breaking</h3>
+          <ul>
+            <li>Map every bottleneck where you're the default answer</li>
+            <li>Audit existing SOPs and tools for adoption gaps</li>
+            <li>Baseline hours spent on ops, interruptions, reporting time</li>
+            <li>Define the three highest-leverage systems to build first</li>
+          </ul>
+          <p class="phase-deliverable">Deliverable: Agency Bottleneck Audit + Priority Build List</p>
+        </div>
+
+        <div class="phase-card">
+          <div class="phase-top"><span class="phase-num">02</span><span class="phase-tag">Done For You</span></div>
+          <div class="phase-days">Days 4–14</div>
+          <h3>We Build Everything Out</h3>
+          <ul>
+            <li>Full SOP library — you don't write a single one</li>
+            <li>Editing workflow documented and systematised</li>
+            <li>Client reporting automated or delegated, with clear ownership</li>
+            <li>Accountability framework built so enforcement doesn't need you</li>
+          </ul>
+          <p class="phase-deliverable">Deliverable: Full Opulence OS System Library + Accountability Framework</p>
+        </div>
+
+        <div class="phase-card">
+          <div class="phase-top"><span class="phase-num">03</span><span class="phase-tag">Done With You</span></div>
+          <div class="phase-days">Days 15–30</div>
+          <h3>Get Everyone Locked In</h3>
+          <ul>
+            <li>Team training sessions run with you present</li>
+            <li>Adoption tracking implemented from day one</li>
+            <li>Early friction identified and fixed in real time</li>
+            <li>You get systematically extracted from day-to-day ops</li>
+          </ul>
+          <p class="phase-deliverable">Deliverable: Team Trained + Adoption Tracker Live</p>
+        </div>
+
+        <div class="phase-card">
+          <div class="phase-top"><span class="phase-num">04</span><span class="phase-tag">Done With You</span></div>
+          <div class="phase-days">Days 31–75</div>
+          <h3>Fine-Tune Until It Runs Without You</h3>
+          <ul>
+            <li>Weekly check-ins to review adoption metrics</li>
+            <li>Troubleshoot any system that isn't holding</li>
+            <li>Optimise based on real usage data, not guesses</li>
+            <li>Final handover with full documentation</li>
+          </ul>
+          <p class="phase-deliverable">Deliverable: Fully Adopted Operating System</p>
+        </div>
+
+      </div>
+      <div class="cta-wrap">
+        <a href="#" class="btn btn-primary cta-btn">Book Your Call</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════ GUARANTEE ══════════════ -->
+  <section>
+    <div class="container">
+      <div class="guarantee-box">
+        <span class="eyebrow">The Team Stickiness Guarantee</span>
+        <h2>Reclaim 12 Hours A Week, Or We Pay You For The Trouble.</h2>
+        <p>If by 75 days after your kickoff call you haven't reclaimed 12 hours a week, we refund every dollar you paid — plus $500 for your time.</p>
+        <p class="fine">No hoops. No arguments.</p>
+        <div class="cta-wrap">
+          <a href="#" class="btn btn-primary cta-btn">Claim Your Spot</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════ WHO THIS IS FOR ══════════════ -->
+  <section>
+    <div class="container">
+      <div class="section-center">
+        <span class="eyebrow">Before You Book</span>
+        <h2>Make Sure This Is Actually For You</h2>
+      </div>
+      <div class="fit-grid">
+        <div class="fit-col yes">
+          <h3>You're a fit if</h3>
+          <ul>
+            <li>You run a content or video agency doing $30K–$100K/month</li>
+            <li>You already have a real team — editors, ops, or account roles</li>
+            <li>Your team can't operate without you in the middle of everything</li>
+            <li>You're ready to enforce systems, not just write them down</li>
+          </ul>
+        </div>
+        <div class="fit-col no">
+          <h3>Not a fit if</h3>
+          <ul>
+            <li>You don't have a team yet</li>
+            <li>You're running anything other than a content or video agency</li>
+            <li>You're doing under $30K/month</li>
+            <li>You want a PDF, not something enforced inside your business</li>
+          </ul>
+        </div>
+      </div>
+      <div class="cta-wrap">
+        <a href="#" class="btn btn-primary cta-btn">Book Your Call</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════ FAQ ══════════════ -->
+  <section>
+    <div class="container">
+      <div class="section-center">
+        <span class="eyebrow">FAQ</span>
+        <h2>Questions You're Probably Asking</h2>
+      </div>
+      <div class="faq-list">
+
+        <details class="faq-item">
+          <summary>Is this just another course or coaching program?</summary>
+          <p>No. We don't hand you a framework and wish you luck. We build every system inside your operation — using your tools, your clients, your team — and stay through Day 75 to make sure your team actually adopts it.</p>
+        </details>
+
+        <details class="faq-item">
+          <summary>I've tried SOPs and project management tools before. Nobody used them.</summary>
+          <p>Systems fail without enforcement, not because your team is lazy. We build the accountability framework alongside every SOP, so using it isn't optional — and adoption is tracked from day one, not assumed.</p>
+        </details>
+
+        <details class="faq-item">
+          <summary>My operation is messy. I'm embarrassed to show anyone.</summary>
+          <p>The messier it is, the more we can fix. Every agency we've worked with looked the same way going in. We've never seen an operation too broken to install this in.</p>
+        </details>
+
+        <details class="faq-item">
+          <summary>Will this disrupt my team or slow down client delivery?</summary>
+          <p>No. The build happens in the first 14 days with minimal time required from your team. Training in Phase 3 fits inside the existing workday — total team time is a few hours across the week, not days off delivery.</p>
+        </details>
+
+        <details class="faq-item">
+          <summary>How is this different from just hiring an ops person?</summary>
+          <p>An ops hire still depends on you to know what "good" looks like — and they leave. We install the system and the enforcement mechanism directly into your business, train your existing team on it, and hand over full documentation. It doesn't walk out the door.</p>
+        </details>
+
+        <details class="faq-item">
+          <summary>What if my team pushes back on new systems?</summary>
+          <p>Expected, and planned for. We script the rollout, train the team directly, and build accountability around their own performance goals — it reads as ownership, not surveillance. People who quit over clear expectations were never going to stay.</p>
+        </details>
+
+        <details class="faq-item">
+          <summary>What happens after the 75 days? Am I on my own?</summary>
+          <p>You get the full Opulence OS system library, adoption tracker, and documentation handed over — built to run without us. The Team Stickiness Guarantee covers the full 75 days, so if it's not holding, we're still in it with you.</p>
+        </details>
+
+        <details class="faq-item">
+          <summary>What actually happens on the call?</summary>
+          <p>We map what's breaking in your operation and calculate exactly what it's costing you per month — in dollars, not vague advice. You leave with a specific number and a clear next move, whether you work with us or not.</p>
+        </details>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════ FINAL CTA ══════════════ -->
+  <section class="final-cta">
+    <div class="container">
+      <span class="eyebrow">Last Call</span>
+      <h2>Stop Being The Operating System. Install One Instead.</h2>
+      <p class="lede">40 minutes. No pitch deck. Just a clear number on what your bandwidth problem is costing you.</p>
+      <div class="cta-wrap">
+        <a href="#" class="btn btn-primary cta-btn">Book Your Call →</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════ FOOTER ══════════════ -->
+  <footer class="site-footer">
+    <div class="container">
+      <span class="logo-text">Opulence Flows</span>
+      <div class="footer-divider"></div>
+      <p class="footer-powered">Powered by Opulence Flows</p>
+    </div>
+  </footer>
+
+  <!-- ══════════════ MOBILE STICKY CTA ══════════════ -->
+  <div class="mobile-bar">
+    <a href="#" class="btn btn-primary btn-block cta-btn">Book Your Call</a>
+  </div>
+
+  <script>
+    // Single source of truth for the booking link — update this one value.
+    const BOOKING_URL = "https://calendly.com/joseambebiz/advisory-session";
+    document.querySelectorAll(".cta-btn").forEach(function (el) {
+      el.setAttribute("href", BOOKING_URL);
+      el.setAttribute("target", "_blank");
+      el.setAttribute("rel", "noopener");
+    });
+  </script>
+
+</body>
+</html>
